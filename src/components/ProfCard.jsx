@@ -10,6 +10,7 @@ export default function ProfCard({
     }) {
     const [hasBeenLiked, setHasBeenLiked] = useState(false)
     const [hasBeenCrossed, setHasBeenCrossed] = useState(false)
+    const [leftTheScreen, setLeftTheScreen] = useState(false)
 
     const swiped = (direction) => {
         if(direction === 'left') {
@@ -22,12 +23,20 @@ export default function ProfCard({
         }
     }
 
+    const onCardLeftScreen = (myIdentifier) => {
+        setLeftTheScreen(true)
+    }
+
     return (
         <TinderCard
             ref={cardRef}
             preventSwipe={['up','down']}
             onSwipe={swiped}
-            className={`TinderCard ${(hasBeenLiked || hasBeenCrossed) ? "swiped" : ""}`}
+            onCardLeftScreen={onCardLeftScreen}
+            className={`tinderCard 
+            ${(hasBeenLiked || hasBeenCrossed) ? 
+                "swiped" : ""} 
+            ${leftTheScreen ? "hidden" : ""}`}
         >
             <div className="card-div">
                 {hasBeenCrossed && 

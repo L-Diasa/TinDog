@@ -23,10 +23,11 @@ body {
   box-sizing: border-box;
   margin: 0;
   place-items: center;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   justify-content: center;
   background: linear-gradient(180deg, #FFFFFF 0%, #F6F7FB 100%);
+  overflow-x: hidden;
 }
 
 .app {
@@ -70,6 +71,7 @@ button {
 
 button:focus {
   outline: none;
+  background: #FFFFFF;
 }
 
 .buttons-div {
@@ -118,13 +120,17 @@ button:disabled {
   width: 70px;
 }
 
-.TinderCard {
+.tinderCard {
   user-select: none;
   position: absolute;
 }
 
-.TinderCard.swiped {
+.tinderCard.swiped {
   pointer-events: none;
+}
+
+.tinderCard.hidden {
+  display: none;
 }
 
 .profiles-div {
@@ -137,7 +143,7 @@ button:disabled {
   position: relative;
   background-color: transparent;
   align-self: center;
-  background-size: cover;
+  background-size: cover; 
   background-position: center;
   height: 460px;
   width: 340px;
@@ -161,7 +167,7 @@ button:disabled {
   object-fit: cover;
   width: 100%;
   overflow-y: hidden;
-  height: 460px;
+  height: inherit;
   border-radius: 15px;
   pointer-events: none;
 }
@@ -198,4 +204,121 @@ button:disabled {
   transform: rotate(-30deg);
   transition: 2ms;
   pointer-events: none;
+}
+
+@media screen and (max-height: 635px) {
+  .profiles-div {
+    height: 400px;
+    width: 340px;
+  }
+  
+  .card-div {
+    height: 400px;
+    width: 340px;
+  }
+}
+
+@media screen and (max-height: 575px) {
+  .profiles-div {
+    height: 360px;
+    width: 340px;
+  }
+  
+  .card-div {
+    height: 360px;
+    width: 340px;
+  }
+}
+
+@media screen and (max-height: 528px) {
+ .buttons-div {
+  display: none;
+ }
+}
+
+@media screen and (max-height: 440px) {
+  .profiles-div {
+    height: 260px;
+    width: 260px;
+  }
+  
+  .card-div {
+    height: 260px;
+    width: 260px;
+  }
+ }
+
+ @media screen and (max-height: 440px) {
+  .profiles-div {
+    height: 260px;
+    width: 260px;
+  }
+  
+  .card-div {
+    height: 260px;
+    width: 260px;
+  }
+ }
+
+ @media screen and (max-height: 440px) {
+  .profiles-div {
+    height: 260px;
+    width: 260px;
+  }
+  
+  .card-div {
+    height: 260px;
+    width: 260px;
+  }
+ }
+
+ @media screen and (min-height: 850px) and (min-width: 600px) {
+  .app {
+    max-height: 1000px;
+  }
+  .header {
+    max-width: 534px;
+  }
+
+  header img {
+    max-height: 34px;
+  }
+  
+  header img.logo {
+    max-height: 42px;
+  }
+
+  button {
+    width: 91.87px;
+    height: 91.87px;
+  }
+  button.heart img {
+    width: 40px;
+  }
+  
+  button.cross img {
+    width: 35px;
+  }
+
+  body {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .prof-info-name {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .prof-info-bio {
+    color: #cbc7c7;
+  }
+
+  .profiles-div {
+    width: 534px;
+    height: 751.44px;
+  }
+  
+  .card-div {
+    width: 534px;
+    height: 751.44px;
+  }
 }
